@@ -14,8 +14,6 @@ const Recipe = ({ route, navigation }) => {
 
 	const recipe = data?.recipes[0];
 
-	// const { tools, ingredients, steps } = recipe?.fields
-
 	if (loading) {
 		return (
 			<View style={styles.container}>
