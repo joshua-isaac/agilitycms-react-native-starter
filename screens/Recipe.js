@@ -14,7 +14,7 @@ const Recipe = ({ route, navigation }) => {
 
 	const recipe = data?.recipes[0];
 
-	const { tools, ingredients, steps } = recipe?.fields
+	// const { tools, ingredients, steps } = recipe?.fields
 
 	if (loading) {
 		return (
@@ -41,7 +41,7 @@ const Recipe = ({ route, navigation }) => {
 				<View style={styles.section}>
 					<Text style={styles.subTitle}>Tools</Text>
 					<ScrollView horizontal showsHorizontalScrollIndicator={false}>
-						{recipe && tools && tools?.map((tool, index) => {
+						{recipe && recipe?.fields.tools?.map((tool, index) => {
 							return (
 								<View key={index} style={{ marginHorizontal: 15}}>
 									<Image source={{ uri: tool.fields.image.url }} style={styles.toolImage} />
@@ -53,7 +53,7 @@ const Recipe = ({ route, navigation }) => {
 				</View>
 				<View style={styles.section}>
 					<Text style={styles.subTitle}>Ingredients</Text>
-					{recipe && ingredients && ingredients?.map((ingredient, index) => {
+					{recipe && recipe?.fields.ingredients?.map((ingredient, index) => {
 						return (
 							<View key={index}>
 								<View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginBottom: 12 }}>
@@ -66,7 +66,7 @@ const Recipe = ({ route, navigation }) => {
 				</View>
 				<View style={styles.section}>
 					<Text style={styles.subTitle}>Steps</Text>
-					{recipe && steps && steps?.map((step, index) => {
+					{recipe && recipe?.fields.steps?.map((step, index) => {
 						return (
 							<View key={index} style={{ marginBottom: 20 }}>
 								<Text style={{ marginBottom: 8}}>Step {index + 1}</Text>
